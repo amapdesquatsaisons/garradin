@@ -1,0 +1,1284 @@
+@import url("wiki.css");
+
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'gicon';
+    src: url('font/garradin.eot?36341436');
+    src: url('font/garradin.eot?36341436#iefix') format('embedded-opentype'),
+        url('font/garradin.woff?36341436') format('woff'),
+        url('font/garradin.ttf?36341436') format('truetype'),
+        url('font/garradin.svg?36341436#garradin') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, 
+pre, form, fieldset, input, textarea, p, blockquote, th, td,
+figure, article, aside, section, header, footer { 
+    padding: 0;
+    margin: 0;
+}
+fieldset, img { 
+    border: 0;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+ol, ul {
+    list-style: none;
+}
+caption, th {
+    text-align: left;
+}
+article, aside, figure, section, header, footer { display: block; }
+
+h1  { font-size: 2em; }
+h2  { font-size: 1.5em; }
+h3  { font-size: 1.2em; }
+h4  { font-size: 1em; }
+h5  { font-size: 0.9em; }
+h6  { font-size: 0.8em; }
+
+/*
+    marron : #9c4f15 rgb(156, 79, 21)
+    orange : #d98628 rgb(217, 134, 40)
+*/
+
+html { width: 100%; height: 100%; }
+body {
+    font-size: 100%;
+    color: #000;
+    font-family: "Trebuchet MS", Arial, Helvetica, Sans-serif;
+    background: #fff url("bg00.png") repeat-y left bottom;
+    background: url("bg01.png") no-repeat left -100px, url("bg00.png") repeat-y left bottom, #fff;
+    padding-bottom: 1em;
+}
+
+body#popup {
+    background: url("bg01.png") no-repeat -140px -100px, url("bg00.png") repeat-y -140px bottom, #fff;
+}
+
+body#transparent {
+    background: transparent;
+}
+
+.header {
+    color: #fff;
+}
+
+.header h1 {
+    color: #9c4f15;
+    margin-left: 180px;
+    margin-bottom: 0.4em;
+}
+
+.header .menu {
+    position: absolute;
+    width: 168px;
+    margin-top: 100px;
+}
+
+.header .menu a {
+    color: #fff;
+    font-weight: bold;
+    padding: 0.4em 0.4em 0.4em 1em;
+    display: block;
+    text-decoration: none;
+    transition: background .3s;
+}
+
+.header .menu a:hover {
+    text-decoration: underline;
+    background: rgb(217, 134, 40);
+    background: rgba(217, 134, 40, 0.5);
+}
+
+.header .menu li li a {
+    font-size: 0.8em;
+    padding-left: 2em;
+}
+
+.header .menu li.current > a {
+    background: #fff;
+    color: rgb(156, 79, 21);
+}
+
+.header .menu a b {
+    float: right;
+    text-decoration: none;
+    margin-top: -.2em;
+    font-size: 20pt;
+    color: rgb(70, 70, 70);
+    color: rgba(0, 0, 0, .5);
+}
+
+.page {
+    margin: 0px 1em 1em 180px;
+    position: relative;
+}
+
+.page img {
+    max-width: 100%;
+}
+
+body#popup .page {
+    margin: 1em 1em 1em 2.5em;
+}
+
+body#transparent .page {
+    margin: 0;
+    padding: .2em;
+}
+
+span.error, b.error {
+    color: #900;
+}
+
+span.confirm, b.confirm {
+    color: #090;
+}
+
+span.alert, b.alert {
+    color: #990;
+}
+
+p.error {
+    border: 1px solid #c00;
+    background: #fcc;
+    padding: 0.5em;
+    margin-bottom: 1em;
+}
+
+p.confirm {
+    border: 1px solid #0c0;
+    background: #cfc;
+    padding: 0.5em;
+    margin-bottom: 1em;
+}
+
+p.alert {
+    border: 1px solid #cc0;
+    background: #ffc;
+    padding: 0.5em;
+    margin-bottom: 1em;
+}
+
+p.help {
+    margin: 1em;
+    color: #666;
+}
+
+p.intro {
+    margin: 1em;
+}
+
+/* Formulaires */
+fieldset {
+    border: 1px solid #ccc;
+    padding: 0.8em 1em 0 1em;
+    margin-bottom: 1em;
+    padding: 0.5em;
+}
+
+fieldset legend {
+    padding: 0 0.5em;
+    font-weight: bold;
+    color: #000;
+}
+
+label:hover {
+    cursor: pointer;
+    border-bottom: 1px dotted #900;
+}
+
+dl dt label {
+    font-weight: bold;
+}
+
+fieldset dl dt b {
+    color: #900;
+    font-size: 0.7em;
+    font-weight: normal;
+    vertical-align: super;
+}
+
+fieldset dl dd.tip {
+    color: #666;
+}
+
+fieldset dl dd {
+    padding: 0.2em 0.5em 0.2em 1em;
+}
+
+fieldset dl dd ol, fieldset dl dd ul {
+    margin-left: 1.5em;
+}
+
+fieldset dl dl {
+    margin: .5em 0 .5em 1.2em;
+}
+
+input[type=text], textarea, input[type=password], input[type=email],
+input[type=url], input[type=tel], select {
+    padding: 0.2em 0.4em;
+    font-family: Sans-serif;
+    min-width: 20em;
+    max-width: 100%;
+}
+
+input[size] {
+    min-width: 0;
+}
+
+input.time {
+    text-align: center;
+    padding: .2em 0;
+}
+
+input[type=number], input[type=date] {
+    padding: 0.2em 0.4em;
+    font-family: Sans-serif;
+    min-width: 2em;
+}
+
+input[type=submit], input[type=button], input[type=checkbox] {
+    padding: 0.3em;
+    cursor: pointer;
+    transition: opacity .5s ease;
+}
+
+.loader {
+    width: 100%;
+    min-height: 32px;
+    display: block;
+    position: relative;
+}
+
+.loader.install {
+    margin-top: -40px;
+}
+
+.loader b {
+    text-shadow: 2px 2px 5px #999;
+    background: rgb(255, 255, 255);
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: .5em;
+    font-size: 16px;
+    line-height: 16px;
+    height: 16px;
+    z-index: 9999;
+    position: absolute;
+    display: block;
+    left: 10px;
+    top: 10px;
+    padding: .2em;
+}
+
+.loader img {
+    position: absolute;
+    opacity: 0;
+    transition: all 0.5s ease;
+    z-index: 2;
+}
+
+select.large {
+    width: 95%;
+}
+
+select.large optgroup.niveau_1 {
+    background: #333;
+    color: #fff;
+    font-style: normal;
+    font-size: 1.2em;
+}
+
+select.large optgroup.niveau_2 {
+    background: #666;
+    color: #fff;
+    font-style: normal;
+    padding-left: 1em;
+}
+
+select.large option {
+    background: #fff;
+    color: #000;
+}
+
+select.large .niveau_2 { font-style: italic; background: #eee; }
+select.large .niveau_3 { padding-left: 1em; font-weight: bold; }
+select.large .niveau_4 { padding-left: 2em; }
+select.large .niveau_5 { padding-left: 3em; }
+select.large .niveau_6 { padding-left: 4em; }
+
+p.submit {
+    margin: 1em;
+}
+
+.submit input[type=submit] {
+    font-size: 1.2em;
+}
+
+.submit input.minor {
+    font-size: .9em;
+}
+
+form .checkUncheck {
+    float: left;
+}
+
+form span.password_check {
+    margin-left: 1em;
+    padding: .1em .3em;
+    border-radius: .5em;
+}
+
+form span.password_check.fail { background-color: #f99; }
+form span.password_check.weak { background-color: #ff9; }
+form span.password_check.medium { background-color: #ccf; }
+form span.password_check.ok { background-color: #cfc; }
+
+dd.help input[type=text] {
+    cursor: pointer;
+    padding: 0;
+    font-family: monospace;
+}
+
+form p.actions {
+    float: right;
+}
+
+ul.actions {
+    list-style-type: none;
+    margin: 1em 0;
+    border-bottom: .1em solid #9c4f15;
+    padding: 0 1em;
+}
+
+ul.actions li {
+    display: inline-block;
+    margin: 0 0.2em;
+}
+
+ul.actions li a {
+    display: inline-block;
+    background: rgb(217, 134, 40);
+    background: rgba(217, 134, 40, .5);
+    border-radius: .5em .5em 0 0;
+    padding: .1em .5em;
+    color: #000;
+    text-decoration: none;
+}
+
+ul.actions li.current a {
+    background: #9c4f15;
+    color: #fff;
+}
+
+ul.actions li a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+h3.warning {
+    margin: 1em;
+    color: red;
+}
+
+dd.help {
+    color: #666;
+}
+
+ul.gallery {
+    text-align: center;
+}
+
+ul.gallery li {
+    display: inline-block;
+    margin: .3em;
+    vertical-align: middle;
+    width: 150px;
+}
+
+ul.gallery li img {
+    max-width: 150px;
+    max-height: 150px;
+}
+
+ul.gallery .actions {
+    text-align: center;
+    z-index: 100;
+}
+
+table.list {
+    margin-bottom: 1em;
+    width: 100%;
+}
+
+table.list.auto {
+    width: auto;
+}
+
+table.list table {
+    margin: 0;
+}
+
+table.list th {
+    text-align: left;
+    font-weight: bold;
+}
+
+table.list thead {
+    background: rgb(217, 134, 40);
+    background: rgba(217, 134, 40, 0.5);
+}
+
+table.list tfoot tr {
+    background: rgb(247, 164, 70);
+    background: rgba(217, 134, 40, 0.1);
+    color: rgb(156, 79, 21);
+}
+
+table.list th, table.list td {
+    padding: 0.2em 0.5em;
+}
+
+table.list tr {
+    border: 1px solid rgb(217, 134, 40);
+    border: 1px solid rgba(217, 134, 40, 0.5);
+    transition: background .5s
+}
+
+table.list tr:nth-child(even) {
+    background: rgb(255, 174, 80);
+    background: rgba(217, 134, 40, 0.2);
+}
+
+table.list.multi tr:nth-child(even) {
+    background: inherit;
+}
+
+table.list.multi tr:nth-child(4n+1), table.list.multi tr:nth-child(4n+2) {
+    background: rgb(255, 174, 80);
+    background: rgba(217, 134, 40, 0.2);
+}
+
+table.list tr.checked {
+    color: #633;
+    background: #ffc;
+}
+
+table.list .error {
+    color: red;
+    font-weight: bold;
+}
+
+table.list .alert {
+    color: darkred;
+    font-weight: bold;
+}
+
+table.list .confirm {
+    color: darkgreen;
+}
+
+table.list .num {
+    text-align: center;
+}
+
+table.list .check {
+    width: 1%;
+}
+
+table.search th {
+    background: rgb(217, 134, 40);
+    background: rgba(217, 134, 40, 0.5);
+}
+
+.userOrder .cur {
+    background: rgb(217, 134, 40);
+    color: #fff;
+}
+
+.userOrder td, .userOrder th {
+    position: relative;
+}
+
+.userOrder .icn {
+    float: left;
+    clear: left;
+    color: #9c4f15;
+    text-decoration: none;
+    font-size: 12pt;
+    line-height: 6pt;
+    width: 12pt;
+    height: 8pt;
+    vertical-align: middle;
+    font-weight: normal;
+    text-shadow: 0px 0px 1px #fff;
+}
+
+thead .icn:hover {
+    color: darkred;
+    text-shadow: none;
+}
+
+thead .cur.desc .icn.dn, thead .cur.asc .icn.up {
+    color: #fff;
+    text-shadow: none;
+}
+
+table.list .actions {
+    text-align: right;
+}
+
+b.money {
+    font-weight: inherit;
+    white-space: pre;
+}
+
+#rapport h3 {
+    text-align: center;
+    margin-bottom: .5em;
+}
+
+#rapport table {
+    width: 100%;
+}
+
+#rapport tr {
+    vertical-align: top;
+}
+
+#rapport table table {
+    border: 1px solid rgb(217, 134, 40);
+    border-color: rgba(217, 134, 40, 0.5);
+}
+
+#rapport table table tr th {
+    width: 80%;
+}
+
+#rapport td, #rapport th {
+    padding: 0.2em 0.5em;
+    text-align: left;
+}
+
+#rapport td.money, #rapport th.money {
+    text-align: right;
+}
+
+#rapport .compte th {
+    font-weight: normal;
+}
+
+#rapport table table td {
+    text-align: right;
+}
+
+#rapport .parent {
+    font-weight: bold;
+    background: rgb(247, 164, 70);
+    background: rgba(217, 134, 40, 0.2);
+}
+
+#rapport table table tfoot tr {
+    background: rgb(247, 164, 70);
+    background: rgba(217, 134, 40, 0.1);
+    color: rgb(156, 79, 21);
+}
+
+#rapport .exercice {
+    text-align: center;
+    margin-bottom: .8em;
+    padding-bottom: .5em;
+    border-bottom: 1pt solid #999;
+}
+
+#rapport h1 {
+    text-align: center;
+}
+
+.icn, .icnl {
+    font-family: "gicon", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    font-variant: normal;
+    text-transform: none;
+    position: relative;
+}
+
+.actions .icn, .icn.action {
+    text-decoration: none;
+    border-radius: 1em;
+    display: inline-block;
+    text-align: center;
+    font-size: 1.2em;
+    line-height: .8em;
+    vertical-align: middle;
+    padding: .2em;
+    font-family: "gicon", sans-serif;
+    color: #9c4f15;
+    text-shadow: 1px 1px 1px #999;
+    transition: all .2s;
+    border: none;
+    cursor: pointer;
+}
+
+.icn[title]:after {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    content: attr(title);
+    color: #666;
+    font-size: 10pt;
+    border-radius: .2em;
+    display: inline-block;
+    right: 2.2em;
+    top: 0;
+    bottom: 0;
+    padding: .3em .4em;
+    background: #ff9;
+    text-shadow: none;
+    white-space: pre;
+    box-shadow: 0px 0px 2px #000;
+    transition: all .2s;
+}
+
+dl dd.actions .icn[title]:after {
+    left: 2.2em;
+    right: auto;
+    z-index: 100000;
+}
+
+.icn[title]:hover:after {
+    display: inline-block;
+    opacity: 1;
+    visibility: visible;
+}
+
+.num a {
+    text-decoration: none;
+    border-radius: .5em;
+    display: inline-block;
+    text-align: center;
+    padding: 0 .2em;
+    background: rgb(247, 164, 70);
+    background: rgba(217, 134, 40, 0.5);
+}
+
+.actions .icn:hover, .num a:hover, .icn.action:hover {
+    color: darkred;
+    background: #ff9;
+}
+
+
+.droits b {
+    border: 2px solid #999;
+    border-radius: 1em;
+    color: #000;
+    background: #ccc;
+    width: 16px;
+    display: inline-block;
+    text-align: center;
+    font-size: 0.8em;
+    cursor: help;
+    vertical-align: middle;
+    position: relative;
+    z-index: 10;
+    font-family: "gicon", "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+.droits b.aucun {
+    border-color: #ccc;
+    background: #eee;
+    color: #999;
+}
+
+.droits b.acces {
+    border-color: #cc9;
+    color: #660;
+    background: #ffe;
+}
+
+.droits b.ecriture {
+    border-color: #9c9;
+    color: #060;
+    background: #efe;
+}
+
+.droits b.aucun:before {
+    content: "X";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -3px;
+    color: #ccc;
+    z-index: -1;
+    font-size: 1.5em;
+    overflow: hidden;
+}
+
+.droits b.admin {
+    color: #900;
+    border-color: #c99;
+    background: #fee;
+}
+
+.infos {
+    margin-bottom: 1em;
+}
+
+.infos h3 {
+    margin-bottom: 0.5em;
+}
+
+.infos p {
+    margin-bottom: 0.8em;
+}
+
+.infos dl {
+    margin-bottom: 0.8em;
+}
+
+.infos dl dd {
+    margin: 0.2em 1em;
+}
+
+.shortFormRight {
+    width: 30em;
+    float: right;
+    font-size: 80%;
+    text-align: center;
+    margin-left: 1em;
+}
+
+.shortFormLeft {
+    font-size: 80%;
+}
+
+.shortFormLeft .special {
+    display: none;
+}
+
+.shortFormRight p.submit {
+    margin-top: -2em;
+    float: right;
+}
+
+.memberList {
+    clear: both;
+}
+
+/* WIKI */
+
+fieldset.wikiText {
+    border: none;
+    padding: 0;
+}
+
+fieldset.wikiMain, fieldset.wikiRights, fieldset.wikiEncrypt {
+    float: right;
+    width: 35%;
+    margin-left: 3%;
+    clear: right;
+}
+
+fieldset.wikiMain input[type=text] {
+    min-width: 0;
+}
+
+#encryptPasswordDisplay {
+    cursor: help;
+    background: #ddd;
+}
+
+fieldset.wikiEncrypt .help {
+    font-size: .9em;
+}
+
+fieldset.wikiMain #f_titre {
+    width: 90%;
+    font-size: 14pt;
+}
+
+fieldset.wikiMain #f_uri {
+    width: 90%;
+}
+
+fieldset.wikiRights dl {
+    font-size: 10pt;
+}
+
+fieldset.wikiRevision  {
+    clear: both;
+}
+
+fieldset.wikiRevision #f_modification {
+    width: 90%;
+}
+
+.wikiFiles {
+    text-align: center;
+}
+
+.wikiFooter, .wikiFiles {
+    font-size: 0.8em;
+    color: #666;
+    border-top: 0.1em solid #ccc;
+    clear: both;
+}
+
+.wikiMain samp {
+    background: #eee;
+    padding: 0.2em 0.3em;
+}
+
+.wikiChildren {
+    margin: 1em 0 1em 1em;
+    border: .1em solid rgba(217, 134, 40, .5);
+    padding: 1em;
+    background: rgba(255, 255, 255, 0.5);
+    float: right;
+    clear: right;
+    width: 25%;
+}
+
+.wikiChildren ul {
+    color: #ccc;
+    list-style-type: square;
+    margin-left: 1em;
+}
+
+.wikiTree ul {
+    margin-left: 1em;
+    list-style-type: none;
+}
+
+.wikiTree ul ul {
+    margin-left: 2em;
+}
+
+.wikiTree a {
+    color: #666;
+}
+
+.wikiTree h3:before {
+    content: "▸";
+    display: inline;
+    margin-right: .5em;
+}
+
+.wikiTree li {
+    margin: 0.2em 0;
+}
+
+.wikiTree h3 {
+    font-size: 1em;
+    font-weight: normal;
+}
+
+.wikiTree .current > h3 a {
+    font-weight: bold;
+    color: #000;
+}
+
+.wikiTree .choice {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.breadCrumbs {
+    margin-bottom: .8em;
+    font-size: .9em;
+    color: #999;
+}
+
+.breadCrumbs ul, .breadCrumbs li {
+    list-style-type: none;
+    display: inline;
+}
+
+.breadCrumbs li:before {
+    content: "> ";
+}
+
+.breadCrumbs li a {
+    color: #333;
+}
+
+.wikiSearch {
+}
+
+.wikiSearch fieldset {
+    padding: .3em;
+}
+
+.wikiSearch input[type=text] {
+    padding: .3em;
+}
+
+.wikiResults h3 {
+    font-weight: normal;
+    margin-bottom: .3em;
+}
+
+.wikiResults p {
+    margin-bottom: .8em;
+    font-size: .9em;
+}
+
+.wikiRevisions .length ins {
+    text-decoration: none;
+    color: green;
+}
+
+.wikiRevisions .length del {
+    text-decoration: none;
+    color: red;
+}
+
+.wikiRevisions .length i {
+    font-style: normal;
+    color: gray;
+}
+
+div.wikiRevision {
+    width: 48%;
+    margin: 1em 1%;
+    text-align: center;
+    float: left;
+}
+
+div.wikiRevision h3 {
+    font-size: 1em;
+}
+
+div.wikiRevision h4 {
+    font-weight: normal;
+    font-size: .9em;
+}
+
+.diff .ins {
+    background: #cfc;
+    width: 45%;
+}
+
+.diff .del {
+    background: #fcc;
+    width: 45%;
+}
+
+.diff .line {
+    width: 2%;
+    padding: 0.2em;
+    text-align: right;
+    font-family: Mono;
+    font-size: 90%;
+    color: #666;
+}
+
+.diff .leftChange, .diff .rightChange {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.diff ins { background: #9f9; }
+.diff del { background: #f99; }
+
+.diff hr {
+    background: none;
+    border: none;
+    border-top: 5px dotted #fff;
+    color: #fff;
+    margin: .2em .4em;
+}
+
+.diff .separator {
+    background: #ccc;
+}
+
+.diff {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 0.9em;
+}
+
+.diff tr {
+    border: 1px solid #ccc;
+    vertical-align: top;
+}
+
+.diff .leftChange b, .diff .rightChange b {
+    text-shadow: 1px 1px 1px #ccc;
+    color: #666;
+}
+
+.pagination {
+    clear: both;
+    list-style-type: none;
+    padding: 0.4em 0;
+    text-align: center;
+}
+
+.pagination li {
+    display: inline-block;
+    margin: 0 0.3em;
+}
+
+.pagination li.current {
+    font-size: 1.3em;
+}
+
+.pagination li a {
+    color: #000;
+}
+
+fieldset.memberMessage {
+    max-width: 30em;
+}
+
+fieldset.memberMessage #f_sujet, fieldset.memberMessage #f_message {
+    width: 95%;
+}
+
+.templatesList ul {
+    margin: 1em 2em;
+}
+
+.catList dt {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.catList dd.desc {
+    color: #666;
+    margin: .2em 0 .2em 2em;
+}
+
+.catList dd.compte {
+    color: #9c4f15;
+    margin: .2em 0 .2em 2em;
+}
+
+.catList dd.actions {
+    margin: .2em 0 1em 2em;
+}
+
+ul.accountList {
+    list-style-type: square;
+    margin-left: 2em;
+}
+
+ul.accountList > li > h4 {
+    font-weight: normal;
+    font-size: 1.2em;
+}
+
+ul.accountList > li {
+    margin-bottom: .8em;
+}
+
+table.accountList .niveau_2 .libelle {
+    font-weight: bold;
+}
+
+table.accountList .niveau_3 .libelle { padding-left: 1em; }
+table.accountList .niveau_4 .libelle { padding-left: 2em; }
+table.accountList .niveau_5 .libelle { padding-left: 3em; }
+table.accountList .niveau_6 .libelle { padding-left: 4em; }
+
+table.rib { display: inline-table; vertical-align: middle; font-size: .9em; text-align: center; border-collapse: collapse; }
+table.rib th, table.rib td { padding: .1em .3em; border: 1px solid #ccc; }
+
+dl.describe {
+    margin-bottom: 1em;
+    clear: both;
+}
+
+dl.describe > dt {
+    font-weight: bold;
+    width: 15em;
+    float: left;
+    clear: left;
+    margin-bottom: .5em;
+}
+
+dl.describe > dd {
+    margin-bottom: .5em;
+    float: left;
+}
+
+dl.describe ul {
+    margin-left: 1em;
+}
+
+dl.cotisation {
+    background: rgb(255, 174, 80);
+    background: rgba(217, 134, 40, 0.2);
+    padding: .5em;
+    border-radius: .5em;
+    margin: 1em;
+}
+
+dl.cotisation dt {
+    font-weight: bold;
+}
+
+dl.cotisation dd {
+    margin: .2em 0 .4em 1em;
+}
+
+.infos_asso {
+    width: 20%;
+    float: right;
+    margin: .5em;
+    border: .1em solid #ccc;
+    background: #eee;
+    padding: .5em;
+}
+
+#orderFields fieldset {
+    position: relative;
+    min-height: 2em;
+}
+
+#orderFields fieldset legend {
+    font-size: 1.2em;
+    line-height: .8em;
+    color: #666;
+}
+
+#orderFields fieldset .actions {
+    display: block;
+    position: absolute;
+    top: 0em;
+    right: 1em;
+}
+
+#orderFields fieldset .actions .icn {
+    position: absolute;
+}
+
+#orderFields fieldset .actions .remove { right: 0em; }
+#orderFields fieldset .actions .edit { right: 1.5em; }
+#orderFields fieldset .actions .down { right: 3em; }
+#orderFields fieldset .actions .up { right: 4.5em; }
+
+#orderFields fieldset:nth-child(1) .actions .up, #orderFields fieldset:nth-last-child(1) .actions .down {
+    display: none;
+}
+
+#orderFields fieldset .actions .icn {
+    cursor: pointer;
+}
+
+#orderFields fieldset .interactive:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+pre.sql_schema {
+    float: right;
+    color: #666;
+    font-size: .9em;
+    width: 30%;
+    overflow: auto;
+}
+
+.hidden {
+    display: none;
+}
+
+form#f_upload fieldset {
+    position: relative;
+}
+
+form .fileUpload .uploadHelper_progress {
+    position: absolute;
+    bottom: 1em;
+    left: 1em;
+    right: 1em;
+    text-align: center;
+    padding: 1em;
+    background: #ddd;
+    box-shadow: 0px 0px 5px #999;
+    border-radius: .5em;
+}
+
+form .fileUpload progress {
+    width: 50%;
+}
+
+form#insertImage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10000;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.75);
+}
+
+form#insertImage fieldset {
+    box-shadow: 5px 5px 10px #000;
+    margin: 1em;
+    padding: 1em;
+    background: #ddd;
+    border-radius: .5em;
+    text-align: center;
+}
+
+form#insertImage dt {
+    margin: .2em 0;
+}
+
+form#insertImage .align input {
+    font-size: 1.2em;
+    line-height: 32px;
+    background: #fff;
+    background-position: 5px center;
+    background-repeat: no-repeat;
+    padding: 5px;
+    padding-left: 42px;
+    border: 1px solid #999;
+    border-radius: 5px;
+    margin: .5em;
+}
+
+form#insertImage .align input[name=""] {
+    background-image: url("pics/img_flow.png");
+}
+
+form#insertImage .align input[name="gauche"] {
+    background-image: url("pics/img_left.png");
+}
+
+form#insertImage .align input[name="droite"] {
+    background-image: url("pics/img_right.png");
+}
+
+form#insertImage .align input[name="centre"] {
+    background-image: url("pics/img_center.png");
+}
+
+form#insertImage .cancel input {
+    font-size: 0.8em;
+    background: transparent;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: .5em;
+    color: #666;
+    cursor: pointer;
+}
+
+form#insertImage .align input:hover, form#insertImage .cancel input:hover,  {
+    cursor: pointer;
+    background-color: #eee;
+    color: darkred;
+}
